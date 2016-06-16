@@ -1,0 +1,290 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block titulo %}
+	Inicio | Gabriela Mistral
+{% endblock titulo %}
+
+{% block contenido %}
+
+
+{% include "navbar.html" %}
+
+{% comment %}
+	---------------------------------- Slider ----------------------------------
+{% endcomment %}
+
+    <section id="main-slider" class="no-margin">
+        <div class="carousel slide wet-asphalt">
+            <ol class="carousel-indicators">
+                <li data-target="#main-slider" data-slide-to="0" class="active"></li>
+                <li data-target="#main-slider" data-slide-to="1"></li>
+                <li data-target="#main-slider" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="item active" style="background-image: url(images/slider/bg1.jpg)">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="carousel-content centered">
+                                    <h2 class="animation animated-item-1">Unidad Educativa Colegio "Gabriela Mistral"</h2>
+                                    <p class="animation animated-item-2">Educación Inicial, Primaria y Secundaria.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--/.item-->
+                <div class="item" style="background-image: url(images/slider/bg2.jpg)">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="carousel-content center centered">
+                                    <h2 class="boxed animation animated-item-1">Cancha Deportiva Multiusos</h2>
+                                    <p class="boxed animation animated-item-2">Amplios espacios para recreación de los estudiantes y práctica de deportes.</p>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--/.item-->
+                <div class="item" style="background-image: url(images/slider/bg3.jpg)">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="carousel-content centered">
+                                    <h2 class="animation animated-item-1">Unidad Educativa Colegio "Gabriela Mistral"</h2>
+                                    <p class="animation animated-item-2">Pellentesque habitant morbi tristique senectus et netus et malesuada fames</p>                 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--/.item-->
+            </div><!--/.carousel-inner-->
+        </div><!--/.carousel-->
+        <a class="prev hidden-xs" href="#main-slider" data-slide="prev">
+            <i class="icon-angle-left"></i>
+        </a>
+        <a class="next hidden-xs" href="#main-slider" data-slide="next">
+            <i class="icon-angle-right"></i>
+        </a>
+    </section>
+{% comment %}
+	------------------------------ Propuestas Educativas ----------------------------
+{% endcomment %}
+    <!-- PENDIENTE!! Si cambias el id services 
+    no se ejecutara la animacion de la imagen -->
+    <section id="services" class="turquoise">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-12">
+                    <div class="center">
+                        <h1>Propuestas Educativas</h1>
+                        <br>
+                        <div class="gap"></div>                        
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <div class="media">
+                        <div class="pull-left">
+                            <!-- <i class="icon-twitter icon-md"></i> -->
+                            <img class="icon-md img-responsive img-thumbnail img-circle" src="{% static 'inicio/images/Nina2.jpg' %}" alt="" >
+                        </div>
+                        <div class="media-body">                            
+                            <h3 class="media-heading">Educación Inicial</h3>
+                            <br>
+                            <p>El periodo escolar es una etapa fundamental en el desarrollo del niño o niña. Apostamos a colaborar con el desarrollo integral, en lo intelectual, motriz, afectivo, social y expresivo.</p>
+                            {% comment %}
+                                formación integral de los niños y las niñas, en cuanto a hábitos, habilidades, destrezas, actitudes y valores
+                            {% endcomment %}
+                        </div><!--/.media-body-->
+                    </div><!--/.media-->
+                </div><!--/.col-md-4-->
+                <div class="col-md-4 col-sm-6">
+                    <div class="media">
+                        <div class="pull-left">
+                            <!-- <i class="icon-facebook icon-md"></i> -->
+                            <img class="icon-md img-responsive img-thumbnail img-circle" src="{% static 'inicio/images/Tarea2.jpg' %}" alt="" >
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading">Primaria</h3>
+                            <br>
+                            <p>Formación integral de los niños y niñas desde los 6 años de edad. Basados en sólidos fundamentos aportados desde la psicología, la sociología y, principalmente la pedagogía, para formar niños y niñas activos, reflexivos, críticos e independientes.</p>
+                        </div>
+                    </div>
+                </div><!--/.col-md-4-->
+                <div class="col-md-4 col-sm-6">
+                    <div class="media">
+                        <div class="pull-left">
+                            <!-- <i class="icon-google-plus icon-md"></i> -->
+                            <img class="icon-md img-responsive img-thumbnail img-circle" src="{% static 'inicio/images/Estudiante2.jpg' %}" alt="" >
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading">Secundaria</h3>
+                            <br>
+                            <p>Los jóvenes profundizarán los contenidos desde un abordaje científico enfatizando la comprensión de contextos y el desarrollo de competencias personales sociales, técnicas y tecnológicas.</p>
+                        </div>
+                    </div>
+                </div><!--/.col-md-4-->
+            </div>
+        </div>
+    </section><!--/#propuestas-->
+
+
+{% comment %}
+	-------------------------------- Instalaciones --------------------------------
+{% endcomment %}
+
+    <section id="instalaciones">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <h3>Instalaciones</h3>
+                    <p>Espacios académicos y recreativos disponibles en la institución.</p>
+                    <div class="btn-group">
+                        <a class="btn btn-danger" href="#scroller" data-slide="prev"><i class="icon-angle-left"></i></a>
+                        <a class="btn btn-danger" href="#scroller" data-slide="next"><i class="icon-angle-right"></i></a>
+                    </div>
+                    <p class="gap"></p>
+                </div>
+                <div class="col-md-9">
+                    <div id="scroller" class="carousel slide">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <div class="portfolio-item">
+                                            <div class="item-inner">
+                                                <img class="img-responsive" src="{% static 'inicio/images/portfolio/recent/item1.png' %}" alt="">
+                                                <h5>
+                                                    Salones Espaciosos
+                                                </h5>
+                                                <div class="overlay">
+                                                    <a class="preview btn btn-danger" title="Salones Espaciosos" href="{% static 'inicio/images/portfolio/full/item1.jpg' %}" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>                            
+                                    <div class="col-xs-4">
+                                        <div class="portfolio-item">
+                                            <div class="item-inner">
+                                                <img class="img-responsive" src="{% static 'inicio/images/portfolio/recent/item3.png' %}" alt="">
+                                                <h5>
+                                                    Sala de Computación
+                                                </h5>
+                                                <div class="overlay">
+                                                    <a class="preview btn btn-danger" title="Sala de Computación" href="{% static 'inicio/images/portfolio/full/item1.jpg' %}" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>                            
+                                    <div class="col-xs-4">
+                                        <div class="portfolio-item">
+                                            <div class="item-inner">
+                                                <img class="img-responsive" src="{% static 'inicio/images/portfolio/recent/item2.png' %}" alt="">
+                                                <h5>
+                                                    Laboratorio de Ciencias
+                                                </h5>
+                                                <div class="overlay">
+                                                    <a class="preview btn btn-danger" title="Laboratorio de Ciencias" href="{% static 'inicio/images/portfolio/full/item1.jpg' %}" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!--/.row-->
+                            </div><!--/.item-->
+                            <div class="item">
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <div class="portfolio-item">
+                                            <div class="item-inner">
+                                                <img class="img-responsive" src="{% static 'inicio/images/portfolio/recent/item2.png' %}" alt="">
+                                                <h5>
+                                                    Cacha Deportiva Multiusos
+                                                </h5>
+                                                <div class="overlay">
+                                                    <a class="preview btn btn-danger" title="Cacha Deportiva Multiusos" href="{% static 'inicio/images/portfolio/full/item1.jpg' %}" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <div class="portfolio-item">
+                                            <div class="item-inner">
+                                                <img class="img-responsive" src="{% static 'inicio/images/portfolio/recent/item1.png' %}" alt="">
+                                                <h5>
+                                                    Patio Interno
+                                                </h5>
+                                                <div class="overlay">
+                                                    <a class="preview btn btn-danger" title="Patio Interno" href="{% static 'inicio/images/portfolio/full/item1.jpg' %}" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>                            
+                                    <div class="col-xs-4">
+                                        <div class="portfolio-item">
+                                            <div class="item-inner">
+                                                <img class="img-responsive" src="{% static 'inicio/images/portfolio/recent/item3.png' %}" alt="">
+                                                <h5>
+                                                    Aula para Charlas
+                                                </h5>
+                                                <div class="overlay">
+                                                    <a class="preview btn btn-danger" title="Patio Superior" href="{% static 'inicio/images/portfolio/full/item1.jpg' %}" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!--/.item-->
+                        </div>
+                    </div>
+                </div>
+            </div><!--/.row-->
+        </div>
+    </section><!--/#instalaciones-->
+
+    {% comment %}
+	---------------------------------- Testimonios ----------------------------------
+    {% endcomment %}
+
+    <section id="opiniones" class="alizarin">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="center">
+                        <h2>Qué dicen nuestros Representantes</h2>
+                        <p>Opiniones de los representantes acerca de nuestra institución.</p>
+                    </div>
+                    <div class="gap"></div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <blockquote>
+                                <p>Usted formó mi corazón para la Libertad, para la Justicia, para lo grande, para lo Hermoso.</p>
+                                <small>Simón Bolívar</small>
+                            </blockquote>
+                            <blockquote>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                                <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+                            </blockquote>
+                        </div>
+                        <div class="col-md-6">
+                            <blockquote>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                                <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+                            </blockquote>
+                            <blockquote>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                                <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!--/#opiniones-->
+
+
+{% include "prefooter.html" %}
+{% include "footer.html" %}
+{% endblock contenido %}

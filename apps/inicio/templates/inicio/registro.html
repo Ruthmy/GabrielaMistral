@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block titulo %}
+	Registro | Gabriela Mistral
+{% endblock titulo %}
+
+{% block contenido %}
+{% include "navbar.html" %}
+
+
+<section id="registration" class="container">
+	{% comment %}
+		Inicio del formulario
+	{% endcomment %}
+    <form class="center" role="form">
+        <fieldset class="registration-form">
+            <div class="form-group">
+                <input type="text" id="username" name="username" placeholder="Nombre de Usuario" class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="text" id="nombre" name="nombre" placeholder="Nombres" class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="text" id="apellido" name="apellido" placeholder="Apellidos" class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="text" id="cedula" name="cedula" placeholder="Cedula de Identidad" class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="text" id="email" name="email" placeholder="E-mail" class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" name="password" placeholder="Password" class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="password" id="password_confirm" name="password_confirm" placeholder="Password (Confirm)" class="form-control">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-success btn-md btn-block">Register</button>
+            </div>
+        </fieldset>
+    </form>
+</section><!--/#registration-->
+
+
+
+
+
+
+{% include "footer.html" %}
+{% endblock contenido %}

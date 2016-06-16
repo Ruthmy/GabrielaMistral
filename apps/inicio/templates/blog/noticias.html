@@ -1,0 +1,252 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block titulo %}
+	Noticias | Gabriela Mistral
+{% endblock titulo %}
+
+{% block contenido %}
+{% include "navbar.html" %}
+
+
+{% comment %}
+    Cabecera verde donde va el titulo "Blog"
+{% endcomment %}
+    <section id="title" class="turquoise">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h1>Noticias</h1>
+                    <p>Blog informativo de la Institución</p>
+                </div>
+                <div class="col-sm-6">
+                    <ul class="breadcrumb pull-right">
+                        <li><a href="{% url 'Inicio' %}">Inicio</a></li>
+                        <li class="active">Blog</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section><!--/#titulo-->     
+    {% comment %}
+        Fin de la Cabecera verde
+        Inicio de la barra de busqueda
+        Aqui aun no agregar el respectivo form
+    {% endcomment %}
+    <section id="blog" class="container">
+        <div class="row">
+            {% comment %}
+                Inicio de la división del lado derecho de la pantalla
+            {% endcomment %}
+            <aside class="col-sm-4 col-sm-push-8">
+                <div class="widget search">
+                    <form role="form">
+                        <div class="input-group">
+                            <input type="text" class="form-control" autocomplete="off" placeholder="Buscar">
+                            <span class="input-group-btn">
+                                <button class="btn btn-danger" type="button"><i class="icon-search"></i></button>
+                            </span>
+                        </div>
+                    </form>
+                </div><!--/.search-->
+                {% comment %}
+                    Fin de la Barra de busqueda
+                    Imagenes para publicidad
+                {% endcomment %}
+                <div class="widget ads">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <a href="#"><img class="img-responsive img-rounded" src="{% static 'inicio/images/ads/ad1.png' %}" alt=""></a>
+                        </div>
+
+                        <div class="col-xs-6">
+                            <a href="#"><img class="img-responsive img-rounded" src="{% static 'inicio/images/ads/ad2.png' %}" alt=""></a>
+                        </div>
+                    </div>
+                    <p> </p>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <a href="#"><img class="img-responsive img-rounded" src="{% static 'inicio/images/ads/ad3.png' %}" alt=""></a>
+                        </div>
+
+                        <div class="col-xs-6">
+                            <a href="#"><img class="img-responsive img-rounded" src="{% static 'inicio/images/ads/ad4.png' %}" alt=""></a>
+                        </div>
+                    </div>
+                </div><!--/.ads-->
+                {% comment %}
+                    Fin de publicidad
+                    Inicio Categorias
+                {% endcomment %}
+                <div class="widget categories">
+                    <h3>Categorias</h3>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            {% if categorias %}    
+                                <ul class="arrow">
+                                    {% for Categoria in categorias %}
+                                        <li><a href="#">{{ Categoria.nombre }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </div>
+                            {% comment %}
+                            Este espacio es la segunda columna de categoria
+                            Queda comentada mientras se aregla como hacerla funcional
+                            <div class="col-sm-6">
+                                <ul class="arrow">
+                                    <li><a href="#">Universidad</a></li>
+                                </ul>
+                            </div> 
+                            {% endcomment %}
+                    </div>                     
+                </div><!--/.categories-->
+                {% comment %}
+                    Fin Categorias
+                    Inicio de la Nube de etiquetas
+                {% endcomment %}
+                <div class="widget tags">
+                    <h3>Nube de Etiquetas</h3>
+                    <ul class="tag-cloud">
+                        {% if tags %}
+                            {% for Tag in tags %}
+                                <li><a class="btn btn-xs btn-primary" href="#">{{Tag.nombre}}</a></li>
+                            {% endfor %}
+                        {% endif %}
+                    </ul>
+                </div><!--/.tags-->
+                {% comment %}
+                    Fin de las etiquetas
+                    Fin de la división del lado derecho
+                {% endcomment %}              
+            </aside>  
+
+            {% comment %}
+                Inicio de la division izquierda
+            {% endcomment %}
+
+            <div class="col-sm-8 col-sm-pull-4">
+                <div class="blog">
+                {% comment %}
+                    Item del Blog 
+                    Si viene cargada la variable de contexto lasted_post entra al ciclo for y si la publicacion es True en el booleano publicar mostrara la entrada
+                {% endcomment %}
+                    {% if lastest_post%}
+                        {% for Post in lastest_post %}
+                            {% if Post.publicar %}
+                                <div class="blog-item">
+                                    <img class="img-responsive img-blog" src="{% static 'inicio/images/blog/blog1.jpg' %}" width="100%" alt="" />
+                                    <div class="blog-content">
+                                        <a href="/Blog/{{ Post.id }}/"><h3>{{ Post.titulo }}</h3></a>
+                                        <div class="entry-meta">
+                                            <span><i class="icon-user"></i> <a href="#">{{Post.autor}}</a></span>
+                                            <span><i class="icon-calendar"></i>{{Post.creacion}}</span>
+                                            <span><i class="icon-comment"></i> <a href="blog-item.html#comments">1 Comentarios</a></span>
+                                        </div>
+                                        <p>{{Post.contenido}}</p>
+                                        <a class="btn btn-default" href="blog-item.html">Leer<i class="icon-angle-right"></i></a>
+                                    </div>
+                                </div><!--/.blog-item-->
+                            {% endif %}
+                        {% endfor %}
+                    {% else %}
+                        <p>Por ahora no hemos publicado entradas. Por favor regresa más tarde</p>
+                    {% endif %}
+                    {% comment %}
+                        Fin del Item del Blog
+                        Fin de las muestras de entradas del blog
+                        Inicio de la paginación
+                    {% endcomment %}
+
+                    <ul class="pagination pagination-lg">
+                        <li><a href="#"><i class="icon-angle-left"></i></a></li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#"><i class="icon-angle-right"></i></a></li>
+                    </ul><!--/.paginacion-->
+                </div>
+            </div><!--/.col-md-8-->
+            {% comment %}
+                Fin de la paginacion
+            {% endcomment %}
+        </div><!--/.row-->
+    </section><!--/#blog-->
+
+
+
+
+
+
+
+
+
+{% comment %}
+	Pruebas de colores de Cuerpo
+{% endcomment %}
+
+<section id="gm" class="turquoise">
+	<p>turquoise</p>
+</section>
+<section id="gm" class="green-sea">
+	<p>green-sea</p>
+</section>
+<section id="gm" class="sun-flower">
+	<p>sun-flower</p>
+</section>
+<section id="gm" class="orange">
+	<p>orange</p>
+</section>
+<section id="gm" class="emerald">
+	<p>emerald</p>
+</section>
+<section id="gm" class="nephrits">
+	<p>nephrits</p>
+</section>
+<section id="gm" class="carrot">
+	<p>carrot</p>
+</section>
+<section id="gm" class="pumkin">
+	<p>pumkin</p>
+</section>
+<section id="gm" class="peter-river">
+	<p>peter-river</p>
+</section>
+<section id="gm" class="belize-hole">
+	<p>belize-hole</p>
+</section>
+<section id="gm" class="alizarin">
+	<p>alizarin</p>
+</section>
+<section id="gm" class="pomegranate">
+	<p>pomegranate</p>
+</section>
+<section id="gm" class="amethyst">
+	<p>amethyst</p>
+</section>
+<section id="gm" class="wisteria">
+	<p>wisteria</p>
+</section>
+<section id="gm" class="clouds .silver">
+	<p>clouds .silver</p>
+</section>
+<section id="gm" class="wet-asphalt">
+	<p>wet-asphalt</p>
+</section>
+<section id="gm" class="midnight-blue">
+	<p>midnight-blue</p>
+</section>
+<section id="gm" class="concrete">
+	<p>concrete</p>
+</section>
+<section id="gm" class="asbesto">
+	<p>asbesto</p>
+</section>
+
+
+
+{% include "prefooter.html" %}
+{% include "footer.html" %}
+{% endblock contenido %}

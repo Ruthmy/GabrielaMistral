@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block titulo %}
+    Inicio de Sesión | Gabriela Mistral
+{% endblock titulo %}
+
+{% block contenido %}
+
+
+{% include "navbar.html" %}
+
+
+
+    <section>
+    <div class="container">
+
+        <div class="row">
+            
+            <div class="col-md-12">
+
+                <h1 class="text-center">Inicia Sesión</h1>
+                <p>&nbsp;</p>
+
+            </div><!-- col-md-12 -->
+
+        </div><!-- /row -->
+
+        <div class="row">
+            
+            <div class=" col-md-12 text-center">
+
+                <div class="col-md-push-4 col-md-4 text-center line">
+{% comment %}
+  ---------------------------------  Formulario   ---------------------------------
+{% endcomment %}
+                    <form role="form" action="" method="POST"> {% csrf_token %}
+                        <p class="text-center">Ingresa tus datos y accede al sistema web de la Gabriela Mistral:</p>
+                        {% comment %}deberia ir solo una variable Form. Revisa
+                            Aqui 
+                        {% endcomment %}
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Ingresa un nombre de usuario">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Ingresa una constraseña">
+                        </div>
+                        {% comment %}
+                            Aunque la etiqueta no es un Input, este button de Bootstrap hace justo los mismo
+                        {% endcomment %}
+                        <button type="submit" class="btn btn-success btn-lg btn-block">Entrar</button>
+                    </form>
+                    {% comment %}
+                    <hr>
+                    <p>
+                        <a href="#" class="btn btn-primary btn-lg btn-block">Registrate con Facebook</a>
+                        <a href="#" class="btn btn-danger btn-lg btn-block">Registrate con Google+</a>
+                    </p>
+                    {% endcomment %}
+{% comment %}
+  --------------------------------- Fin Formulario   ---------------------------------
+{% endcomment %}
+                </div><!-- col-md-6 -->
+
+            </div><!-- col-md-12 -->
+
+        </div><!-- /row -->
+
+    </div><!-- /container -->
+    </section>
+  
+{% include "footer.html" %}
+
+   
+{% endblock contenido %}

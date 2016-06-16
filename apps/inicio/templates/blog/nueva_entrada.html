@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block titulo %}
+	Nueva Entrada | Gabriela Mistral
+{% endblock titulo %}
+
+{% block contenido %}
+{% include "navbar.html" %}
+
+{% comment %}
+	Encabezado
+{% endcomment %}
+<section id="title" class="turquoise">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h1>Nueva Entrada</h1>
+                <p>Blog informativo de la Institución</p>
+            </div>
+            <div class="col-sm-6">
+                <ul class="breadcrumb pull-right">
+                    <li><a href="{% url 'Blog' %}">Blog</a></li>
+                    <li class="active">Nueva publicación</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section><!--/#titulo-->  
+
+{% comment %}
+	Inicio del registro de la entrada
+{% endcomment %}
+
+<section id="reg_entrada">
+    <div class="container">
+        <div class="row">
+			{% comment %}
+				Columna derecha para opciones de edicion
+			{% endcomment %}
+        	<aside class="col-sm-4 col-sm-push-8">
+        		<h4>Opciones de edición de la entrada</h4>
+        		<hr>
+        		<p>Aqui deben ubicarse las opciones que permiten clasificar la entrada. La asignación de tags y categrias y la creación en caso de que sea necesario</p>
+        		<hr>
+        		<p>Y en esta otra división deberia haber un botón que permita guargar la entrada para editarla y/o publicarla despues. De hecho, el BooleanField publicar debería ir de este lado</p>
+        		<hr>
+			</aside> <!--/#division--> 
+			{% comment %}
+				Sección izquierda para creacion del blog
+			{% endcomment %}
+        	<div class="col-sm-8 col-sm-pull-4">
+				<form action="" method="POST">{% csrf_token %}
+					<table align="center">
+					{{ form.as_table }}
+					</table>
+					<!--<input type="submit" value="Enviar">-->
+					<div class="gap"></div>
+					<button type="submit" class="btn btn-success btn-lg btn-block">Listo!</button>
+				</form>
+			</div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock contenido %}

@@ -1,0 +1,300 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block titulo %}
+	Blog | Gabriela Mistral
+{% endblock titulo %}
+
+{% block contenido %}
+
+
+{% include "navbar.html" %}
+
+
+
+
+{{object_list}}
+
+
+{% for objects in object_list %}
+
+	{{object.titulo}}
+	
+{% endfor %}
+
+<section id="title" class="turquoise">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h1>Detalle de un Entrada</h1>
+                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
+            </div>
+            <div class="col-sm-6">
+                <ul class="breadcrumb pull-right">
+                    <li><a href="{% url 'Inicio' %}">Inicio</a></li>
+                    <li><a href="#">Pages</a></li>
+                    <li class="active">Blog Item</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section><!--/#title-->
+
+{% comment %}
+	Fin de la Cabecera verde
+	Inicio de la barra de busqueda
+	Aqui aun no agregar el respectivo form
+{% endcomment %}
+
+<section id="blog" class="container">
+    <div class="row">
+    {% comment %}
+        Inicio de la división del lado derecho de la pantalla
+    {% endcomment %}
+        <aside class="col-sm-4 col-sm-push-8">
+            <div class="widget search">
+                <form role="form">
+                    <div class="input-group">
+                        <input type="text" class="form-control" autocomplete="off" placeholder="Search">
+                        <span class="input-group-btn">
+                            <button class="btn btn-danger" type="button"><i class="icon-search"></i></button>
+                        </span>
+                    </div>
+                </form>
+            </div><!--/.search-->
+            {% comment %}
+                Fin de la Barra de busqueda
+                Imagenes para publicidad
+            {% endcomment %}
+            <div class="widget ads">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <a href="#"><img class="img-responsive img-rounded" src="{% static 'inicio/images/ads/ad1.png' %}" alt=""></a>
+                    </div>
+                    <div class="col-xs-6">
+                        <a href="#"><img class="img-responsive img-rounded" src="{% static 'inicio/images/ads/ad2.png' %}" alt=""></a>
+                    </div>
+                </div>
+                <p> </p>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <a href="#"><img class="img-responsive img-rounded" src="{% static 'inicio/images/ads/ad3.png' %}" alt=""></a>
+                    </div>
+
+                    <div class="col-xs-6">
+                        <a href="#"><img class="img-responsive img-rounded" src="{% static 'inicio/images/ads/ad4.png' %}" alt=""></a>
+                    </div>
+                </div>
+            </div><!--/.ads-->
+            {% comment %}
+                Fin de publicidad
+                Inicio Categorias
+            {% endcomment %}
+            <div class="widget categories">
+                <h3>Categorias</h3>
+                <div class="row">
+                    <div class="col-sm-6">
+                        {% if categorias %}    
+                            <ul class="arrow">
+                                {% for Categoria in categorias %}
+                                    <li><a href="#">{{ Categoria.nombre }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                    {% comment %}
+                    Este espacio es la segunda columna de categoria
+                    Queda comentada mientras se aregla como hacerla funcional
+                    <div class="col-sm-6">
+                        <ul class="arrow">
+                            <li><a href="#">Universidad</a></li>
+                        </ul>
+                    </div> 
+                    {% endcomment %}
+                </div>                     
+            </div><!--/.categories-->
+            {% comment %}
+                Fin Categorias
+                Inicio de la Nube de etiquetas
+            {% endcomment %}
+            <div class="widget tags">
+                <h3>Nube de Etiquetas</h3>
+                <ul class="tag-cloud">
+                    {% if tags %}
+                        {% for Tag in tags %}
+                            <li><a class="btn btn-xs btn-primary" href="#">{{Tag.nombre}}</a></li>
+                        {% endfor %}
+                    {% endif %}
+                </ul>
+            </div><!--/.tags-->
+            {% comment %}
+                Fin de las etiquetas
+                Fin de la división del lado derecho
+            {% endcomment %}
+        </aside>
+        {% comment %}
+            Inicio de la division izquierda
+        {% endcomment %}
+        <!-- ----------------------------  BLOG  -------------------------------  -->
+        <div class="col-sm-8 col-sm-pull-4">
+            <div class="blog">
+                <div class="blog-item">
+                    <img class="img-responsive img-blog" src="{% static 'inicio/images/blog/blog2.jpg' %}" width="100%" alt="" />
+                    <div class="blog-content">
+                        <h3>Título</h3>
+                        <div class="entry-meta">
+                            <span>
+                            	<i class="icon-user"></i> <a href="#">Autor</a></span>
+                            <span>
+                            	<i class="icon-folder-close"></i> <a href="#">Categoria</a></span>
+                            <span>
+                            	<i class="icon-calendar"></i> Sept 16th, 2012</span>
+                            <span>
+                            	<i class="icon-comment"></i> <a href="blog-item.html#comments">3 Comments</a></span>
+                        </div>
+                        <p class="lead">Subtitulo o texto relevante.</p>
+
+                        <p>Cuerpo completo de la entrada.</p>
+
+                        <hr>
+
+						{% comment %}
+							Etiquetas de la entrada
+						{% endcomment %}
+                        <div class="tags">
+                            <i class="icon-tags"></i> Tags 
+							{% if tags %}
+		                        {% for Tag in tags %}
+		                            <a class="btn btn-xs btn-primary" href="#">{{Tag.nombre}}</a>
+		                        {% endfor %}
+		                    {% endif %}
+                        </div>
+
+                        <p>&nbsp;</p>
+
+						{% comment %}
+							Sobre el Autor del Articulo
+						{% endcomment %}
+
+                        <div class="author well">
+                            <div class="media">
+                                <div class="pull-left">
+                                    <img class="avatar img-thumbnail" src="{% static 'inicio/images/blog/avatar.jpg' %}" alt="">
+                                </div>
+                                <div class="media-body">
+                                    <div class="media-heading">
+                                            <strong>Autor</strong>
+                                    </div>
+                                    <p>Descripcion corta del autor.</p>
+                                </div>
+                            </div>
+                        </div><!--/.author-->
+
+						{% comment %}
+							Lista de comentarios
+						{% endcomment %}
+
+                        <div id="comments">
+                            <div id="comments-list">
+                                <h3>Total de comentarios</h3>
+                                {% comment %}
+									Inicio de 1 Comentario
+								{% endcomment %}
+                                <div class="media">
+                                    <div class="pull-left">
+                                        <img class="avatar img-circle" src="{% static 'inicio/images/blog/avatar1.png' %}" alt="">
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="well">
+                                            <div class="media-heading">
+                                                <strong>Autor del comentario</strong>&nbsp; <small>27 Aug 2013</small>
+                                                <a class="pull-right" href="#"><i class="icon-repeat"></i> Responder</a>
+                                            </div>
+                                            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+                                        </div>
+                                        <div class="media">
+                                            <div class="pull-left">
+                                                <img class="avatar img-circle" src="{% static 'inicio/images/blog/avatar3.png' %}" alt="">
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="well">
+                                                    <div class="media-heading">
+                                                        <strong>Autor del comentario</strong>&nbsp; <small>27 Aug 2013</small>
+                                                        <a class="pull-right" href="#"><i class="icon-repeat"></i> Responder</a>
+                                                    </div>
+                                                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.</p>
+                                                </div>
+                                            </div>
+                                        </div><!--/.media-->
+                                    </div>
+                                </div><!--/.media-->
+                                {% comment %}
+									Fin de 1 Comentario
+									Inicio de otro
+								{% endcomment %}
+
+								
+
+                                {% comment %}
+									Fin de 1 Comentario
+									Inicio de otro
+								{% endcomment %}
+                                <div class="media">
+                                    <div class="pull-left">
+                                        <img class="avatar img-circle" src="{% static 'inicio/images/blog/avatar2.png' %}" alt="">
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="well">
+                                            <div class="media-heading">
+                                                <strong>Autor del comentario</strong>&nbsp; <small>27 Aug 2013</small>
+                                                <a class="pull-right" href="#"><i class="icon-repeat"></i> Responder</a>
+                                            </div>
+                                            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+                                        </div>
+                                    </div>
+                                </div><!--/.media-->
+                                {% comment %}
+									Fin de 1 Comentario
+								{% endcomment %}
+                            </div><!--/#comments-list-->  
+
+							{% comment %}
+								Formulario para dejar un Comentario
+							{% endcomment %}
+
+                            <div id="comment-form">
+                                <h3>Dejanos un comentario</h3>
+                                <form class="form-horizontal" role="form">
+                                    <div class="form-group">
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" placeholder="Nombre">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="email" class="form-control" placeholder="Email">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <textarea rows="8" class="form-control" placeholder="Comentario"></textarea>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-danger btn-lg">Comentar</button>
+                                </form>
+                            </div><!--/#comment-form-->
+                        </div><!--/#comments-->
+                    </div>
+                </div><!--/.blog-item-->
+            </div>
+        </div><!--/.col-md-8-->
+    </div><!--/.row-->
+</section><!--/#blog-->
+
+
+
+
+
+
+
+
+
+{% endblock contenido %}

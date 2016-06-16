@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block titulo %}
+    Contacto | Gabriela Mistral
+{% endblock titulo %}
+
+{% block contenido %}
+
+
+{% include "navbar.html" %}
+
+{% comment %}
+Barra superior
+{% endcomment %}
+
+    <section id="title" class="emerald">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h1>Contactanos</h1>
+                    <p>¿Alguna pregunta? Le contestaremos a la brevedad posible</p>
+                </div>
+                <div class="col-sm-6">
+                    <ul class="breadcrumb pull-right">
+                        <li><a href="{% url 'Inicio' %}">Inicio</a></li>
+                        <li class="active">Contactanos</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section><!--/#title-->    
+
+{% comment %}
+    Fin barra superior
+    Formulario de datos para el contacto
+{% endcomment %}
+
+    <section id="contact-page" class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <h4>Formulario de contacto</h4>
+                <div class="status alert alert-success" style="display: none"></div>
+
+{% comment %}  Inicio del formulario  {% endcomment %}
+
+                <form id="main-contact-form" class="contact-form" name="contact-form" method="post" action="sendemail.php" role="form">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            {% comment %}  Nombre  {% endcomment %}
+                            <div class="form-group">
+                                <input type="text" class="form-control" required="required" placeholder="Nombre">
+                            </div>
+                            {% comment %}  Apellido  {% endcomment %}
+                            <div class="form-group">
+                                <input type="text" class="form-control" required="required" placeholder="Apellido">
+                            </div>
+                            {% comment %}  Correo  {% endcomment %}
+                            <div class="form-group">
+                                <input type="text" class="form-control" required="required" placeholder="Correo electrónico">
+                            </div>
+                            {% comment %}  Botón enviar  {% endcomment %}
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-lg">Enviar mensaje</button>
+                            </div>
+                        </div>
+                        <div class="col-sm-7">
+                            {% comment %} Espacio para el mensaje {% endcomment %}
+                            <textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder="Mensaje"></textarea>
+                        </div>
+                    </div>
+                </form>
+{% comment %}  Fin del formulario  {% endcomment %}
+            </div><!--/.col-sm-8-->
+
+{% comment %}
+    Fin del ingreso de datos
+    Ubicación con Google Maps
+{% endcomment %}
+
+            <div class="col-sm-4">
+                <h4>Nuestra Ubicación</h4>
+                <iframe width="100%" height="215" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com.au/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Dhaka,+Dhaka+Division,+Bangladesh&amp;aq=0&amp;oq=dhaka+ban&amp;sll=40.714353,-74.005973&amp;sspn=0.836898,1.815491&amp;ie=UTF8&amp;hq=&amp;hnear=Dhaka+Division,+Bangladesh&amp;t=m&amp;ll=24.542126,90.293884&amp;spn=0.124922,0.411301&amp;z=8&amp;output=embed"></iframe>
+            </div><!--/.col-sm-4-->
+        </div>
+    </section><!--/#contact-page-->
+
+
+
+{% include "prefooter.html" %}
+{% include "footer.html" %}
+{% endblock contenido %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block titulo %}
+	Eventos | Gabriela Mistral
+{% endblock titulo %}
+
+{% block contenido %}
+
+	{% for Event in ultimos %}		
+		<p>{{Event.name}}</p>
+	{% endfor %}
+
+
+{% endblock contenido %}

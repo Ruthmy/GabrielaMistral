@@ -1,0 +1,215 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block titulo %}
+	Institucional | Gabriela Mistral
+{% endblock titulo %}
+
+{% block contenido %}
+
+
+{% include "navbar.html" %}
+
+{% comment %}
+	Gabriela Mistral
+{% endcomment %}
+
+	<section id="gm" class="black">
+	    <div class="container">
+	        <div class="row">
+	            <div class="col-lg-12">
+	                <div class="row">
+	                    <div class="col-md-6">
+	                    	<img class="img-responsive" src="{% static 'inicio/images/gabrielamistral.jpg' %}" alt="">
+	                    </div><!--/#col-md-6-->
+	                    <div class="col-md-6">
+	                    	<h1 class="text-right"><strong>G<small>ABRIELA</small> M<small>ISTRAL</small></strong></h1>
+	                    	<div class="gap"></div>	
+	                        <h4 class="text-right">Poetisa, diplomatica, feminista y pedagoga de origen chileno.</h4>
+	                    </div><!--/#col-md-6-->
+	                </div><!--/#row-->
+	            </div><!--/#col-lg-12-->
+	        </div><!--/#row-->
+	    </div>
+	</section><!--/#Gabriela Mistral-->
+
+	{% comment %}
+		Fin Gabriela Mistral
+		Acerca de la Institucion
+	{% endcomment %}
+
+	<section id="gm" class="turquoise">
+		<div class="container">
+		    <div class="row">
+		    	<div class="col-lg-12">
+	                <div class="center">
+						<h1 class="text-center">Acerca de Nuestra Institución</h1>
+						<br>
+						<h4 class="text-center">Desde cuando existe, grados que imparte, caracteristicas relevantes, capacidad de estudiantes que puede atender, entre otros.</h4>
+					</div>
+				</div><!--/#col-lg-12-->
+			</div>
+	    </div>
+	</section><!--/#Acerca de la institucion-->
+
+	{% comment %}
+		Fin Acerca de la institucion
+		Mision y Vision
+	{% endcomment %}
+
+	<section id="mision" class="belize-hole">
+		<div class="container">
+		    <div class="row">
+				<div class="col-sm-6">
+					<div class="center">
+						<h2 class="text-center">Misión</h2>
+						<br>
+						<h4 class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+						</h4>
+						<br>
+					</div><!--/#center-->
+				</div><!--/#col-sm-6-->
+				<div class="col-sm-6">
+					<div class="center">
+						<h2 class="text-center">Visión</h2>
+						<br>
+						<h4 class="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+						</h4>
+						<br>
+					</div><!--/#center-->
+				</div><!--/#col-sm-6-->
+			</div>
+	    </div>
+	</section><!--/#Mision y Vision-->
+
+	{% comment %}
+		Autoridades del colegio
+	{% endcomment %}
+
+	<section id="gm" class="clouds .silver">
+		<div class="container">
+		    <div class="row">
+		    	<div class="col-lg-12 center">
+					<h1 class="text-center">Autoridades</h1>
+					<div class="gap"></div>
+		            <div class="col-md-3 col-xs-6">
+		                <div class="center">
+		                	<div class="gap"></div>
+		                    <p><img class="img-responsive img-thumbnail img-circle" src="{% static 'inicio/images/team-member.jpg' %}" alt="" ></p>
+		                    <h5>Prof. Maria Castrillo<br>
+		                    	<small class="designation muted">Departamento de Evaluación</small>
+		                    </h5>
+		                </div>
+		            </div><!--/#col-md-3 col-xs-6 /#Acompañamiento-->
+					<div class="col-md-3 col-xs-6">
+		                <div class="center">
+		                    <p><img class="img-responsive img-thumbnail img-circle" src="{% static 'inicio/images/team-member.jpg' %}" alt="" ></p>
+		                    <h5>Prof. Damaris de Aguirre<br>
+		                    	<small class="designation muted">Sub-director</small>
+		                    </h5>
+		                </div>
+		            </div><!--/#col-md-3 col-xs-6 /#Sub-Directora-->
+		            <div class="col-md-3 col-xs-6">
+		                <div class="center">
+		                    <p><img class="img-responsive img-thumbnail img-circle" src="{% static 'inicio/images/team-member.jpg' %}" alt="" ></p>
+		                    <h5>Prof. Amarily Molina<br>
+		                    	<small class="designation muted">Directora</small>
+		                    </h5>
+		                </div>
+		            </div><!--/#col-md-3 col-xs-6 /#Directora-->
+		            <div class="col-md-3 col-xs-6">
+		                <div class="center">
+		                	<div class="gap"></div>
+		                    <p><img class="img-responsive img-thumbnail img-circle" src="{% static 'inicio/images/team-member.jpg' %}" alt="" ></p>
+		                    <h5>Prof. Moraima Yanez<br>
+		                    	<small class="designation muted">Acompañamiento Pedagógico</small>
+		                    </h5>
+		                </div>
+		            </div><!--/#col-md-3 col-xs-6 /#Acompañamiento-->
+				</div><!--/#col-lg-12 center-->
+	    	</div><!--/#row-->
+	    </div>
+	</section><!--/#Autoridades-->
+
+	{% comment %}
+		Fin de Autoridades
+		Calendario Escolar
+	{% endcomment %}
+
+	<section id="gm" class="orange">
+		<div class="container">
+		    <div class="row">
+		    	<div class="col-lg-12">
+	                <div class="center">
+	                	<div class="gap"></div>
+						<h1 class="text-center">Calendario Escolar</h1>
+						<h4 class="text-center">2015 - 2016</h4>
+						<br>
+						<button type="button" class="btn btn-default">Descargar</button>
+						<div class="gap"></div>
+					</div>
+				</div>
+			</div><!--/#row-->
+	    </div>
+	</section><!--/#Calendario Escolar-->
+	{% comment %}
+		Fin del Calendario
+		Inscripciones y Listas de útiles
+	{% endcomment %}
+
+	<section id="inscripcion" class="container">
+        <div class="row">
+			<div class="center">
+				<aside class="col-sm-4 col-sm-push-8">
+					<h2 class="text-center">Lista de Útiles</h2>
+					<h4 class="text-center">2016-2017</h4>
+					<div class="gap"></div>
+					<p>Toda la información necesaria en un PDF descargable</p>
+					<br>
+					<p>Por favor escoja un Grado</p>
+					<select class="form-control input-sm">Grado
+						{% for Grado in grados %}
+							<option> {{ Grado.grado}} "{{Grado.seccion}}" </option>
+						{% endfor %}
+					</select>
+					<div class="gap"></div>
+					<button type="button" class="btn btn-default">Descargar</button>
+				</aside>
+				<div class="col-sm-8 col-sm-pull-4">
+					<h1 class="text-center">Inscripciones</h1>
+					<h4 class="text-center">2016-2017</h4>
+					<div class="gap"></div>
+					<p>Información importante pertinente a las inscripciones. Disponibilidad de cupos, niveles educativos, procedimientos para nuevos ingresos, nuevos ingresos desde otra institución, entre otros. Toda la información necesaria en un descargable en PDF</p>
+					<div class="gap"></div>
+					<button type="button" class="btn btn-default">Descargar</button>
+				</div><!--/.col-md-8-->
+			</div><!--/.center-->
+		</div><!--/.row-->
+	</section>
+
+
+{% comment %}
+	Fin Inscripciones y listas
+	Oferta Laboral
+{% endcomment %}
+
+	<section id="laboral" class="carrot">
+		<div class="container">
+	        <div class="row">
+	        	<div class="col-lg-12">
+					<div class="center">
+						<h1 class="text-center">Oferta Laboral</h1>
+						<div class="gap"></div>
+						<p>En este apartado se incluye toda la información de caracter público y concerniente a las plazas disponibles en la institución para los distintos cargos o materias que sean necesarias. Es probable que haya un PDF aquí también</p>
+						<div class="gap"></div>
+					</div><!--/.center-->
+				</div>
+			</div><!--/.row-->
+		</div>
+	</section>
+
+
+
+{% include "prefooter.html" %}
+{% include "footer.html" %}
+{% endblock contenido %}

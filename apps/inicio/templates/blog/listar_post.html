@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block titulo %}
+	Blog | Gabriela Mistral
+{% endblock titulo %}
+
+{% block contenido %}
+
+
+{% include "navbar.html" %}
+
+<h1>
+Si funcionan las listas del blog!
+</h1>
+<p>
+
+	{% for Post in listar_post %}
+	
+		<p>
+		{{Post.titulo}}
+		</p>
+
+	{% endfor %}
+	
+</p>
+
+
+{% endblock contenido %}

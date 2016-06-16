@@ -1,0 +1,78 @@
+{% load staticfiles %}
+    <section id="bottom" class="belize-hole">
+        <div class="container">
+            <div class="row">
+{% comment %}
+    Inicio del md3 Acerca de Nosotros
+{% endcomment %}
+                <div class="col-md-3 col-sm-6">
+                    <h4>Acerca de Nosotros</h4>
+                    <p style="color: white;">Institución Educativa Privada y de Calidad. Con los tres niveles educativos</p>
+                </div><!--/.col-md-3-->
+{% comment %}
+    Inicio del md3 de los enlaces sbre educacion
+{% endcomment %}
+                <div class="col-md-3 col-sm-6">
+                    <h4>Educación</h4>
+                    <div>
+                        <ul class="arrow">
+                            <li><a href="www.me.gob.ve/" style="color: white;">MPPE</a></li>
+                            <li><a href="http://www.mppeuct.gob.ve/" style="color: white;">MPPEUCT</a></li>
+                            <li><a href="www.opsu.gob.ve/" style="color: white;">OPSU</a></li>
+                            <li><a href="http://loeu.opsu.gob.ve/vistas/index.php" style="color: white;">Libro de Oportunidades de Estudios Universitarios</a></li>
+                        </ul>
+                    </div>
+                </div><!--/.col-md-3-->
+
+{% comment %}
+    Inicio del md3 de las ultimas publicaciones
+{% endcomment %}
+
+                <div class="col-md-3 col-sm-6">
+                    <h4>Últimas Publicaciones</h4>
+                    {% if lastest %}
+                        {% for Post in lastest %}
+                            {% if Post.publicar %}
+                                <div>
+                                    <div class="media">
+                                        <div class="pull-left">
+                                            <img src="{% static 'inicio/images/blog/thumb1.jpg' %}" alt="">
+                                        </div>
+                                        <div class="media-body">
+                                            <span class="media-heading"><a href="/Blog/{{ Post.id }}/" style="color: white;">{{Post.titulo}}</a></span>
+                                            <small class="muted">{{Post.creacion}}</small>
+                                        </div>
+                                    </div>
+                                </div>  
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </div><!--/.col-md-3-->
+{% comment %}
+    Inicio del md3 de los Datos de contacto
+{% endcomment %}
+
+                <div class="col-md-3 col-sm-6">
+                    <h4>Datos de Contacto</h4>
+                    <address  style="color: white;">
+                        <strong>U.E.C. Gabriela Mistral</strong><br>
+                        Salida Los Llanos, Urbanización Isaías Medina Angarita, calle Noguera Nro. 1.<br>
+                        Av. Los Llanos<br>
+                        <abbr title="Telefono">Tlf:</abbr> (0246) 431-4408<br>
+                        <abbr title="Correo">@:</abbr><a href="mailto:eucgabrielamistral@hotmail.com"  style="color: white;">eucgabrielamistral@hotmail.com</a>
+                    </address>
+        {% comment %} Aqui falta el formulario de busqueda {% endcomment %}
+                    <h4>Mantente Actualizado</h4>
+                    <form role="form">
+                        <div class="input-group">
+                            <input type="text" class="form-control" autocomplete="off" placeholder="Ingresa tu correo">
+                            <span class="input-group-btn">
+                                <button class="btn btn-danger" type="button">Ok!</button>
+                            </span>
+                        </div>
+                    </form>
+        {% comment %} Aqui arriba falta el formulario de busqueda {% endcomment %}
+                </div> <!--/.col-md-3-->
+            </div>
+        </div>
+    </section><!--/#bottom-->
